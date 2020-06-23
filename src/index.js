@@ -69,7 +69,6 @@ function cellClick(i) {
     } else {
       player = "X";
     }
-    document.getElementById("player").innerHTML = player;
     //if all the boxes are filled but there has been no win, alert tie
     turn = turn + 1;
     if (turn === 25) {
@@ -104,7 +103,6 @@ function restart() {
   }
   //change player to player X again and set game status to "game on"
   player = "X";
-  document.getElementById("player").innerHTML = player;
   status = "Game on";
   turn = 0;
 }
