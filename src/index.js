@@ -21,7 +21,6 @@ function cellClick(i) {
   if (cells[i].innerHTML.trim() === "" && status === "Game on") {
     //checks that the cell is empty and game is on
     cells[i].innerHTML = mark; //current player's mark is written to clicked cell
-    //player is switched
 
     //check if there are 5 matching symbols in a row
     for (let j = 0; j < 25; j = j + 5) {
@@ -65,6 +64,7 @@ function cellClick(i) {
     ) {
       winner(4, 8, 12, 16, 20);
     }
+    //player is switched
     if (player === "1") {
       player = "2";
       mark = "O";
