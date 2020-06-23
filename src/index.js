@@ -87,7 +87,11 @@ function winner(a, b, c, d, e) {
   cells[c].style.backgroundColor = "green";
   cells[d].style.backgroundColor = "green";
   cells[e].style.backgroundColor = "green";
-  alert("Game over, player " + player + " won!");
+   if (player === "X") {
+    alert("Game over, player 1 won!");
+  } else if (player === "O") {
+    alert("Game over, player 2 won!");
+  }
   status = "Game over"; //end game
 }
 
