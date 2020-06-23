@@ -1,7 +1,8 @@
 import "./styles.css";
 
 var turn = 0; //keeps track of played turns
-let player = "X"; //current player
+let player = "1"; //current player
+let mark = "X"; //player 1's mark
 let status = "Game on"; //shows the game status, default id game on
 const cells = document.getElementsByClassName("cell"); //all cell elements
 
@@ -19,7 +20,7 @@ document.getElementById("restart").addEventListener("click", restart);
 function cellClick(i) {
   if (cells[i].innerHTML.trim() === "" && status === "Game on") {
     //checks that the cell is empty and game is on
-    cells[i].innerHTML = player; //current player's mark is written to clicked cell
+    cells[i].innerHTML = mark; //current player's mark is written to clicked cell
     //player is switched
 
     //check if there are 5 matching symbols in a row
@@ -64,11 +65,14 @@ function cellClick(i) {
     ) {
       winner(4, 8, 12, 16, 20);
     }
-    if (player === "X") {
-      player = "O";
+    if (player === "1") {
+      player = "2";
+      mark = "O";
     } else {
-      player = "X";
+      player = "1";
+      mark = "X";
     }
+    document.getElementById("player").innerHTML = player;
     //if all the boxes are filled but there has been no win, alert tie
     turn = turn + 1;
     if (turn === 25) {
@@ -86,11 +90,7 @@ function winner(a, b, c, d, e) {
   cells[c].style.backgroundColor = "green";
   cells[d].style.backgroundColor = "green";
   cells[e].style.backgroundColor = "green";
-   if (player === "X") {
-    alert("Game over, player 1 won!");
-  } else if (player === "O") {
-    alert("Game over, player 2 won!");
-  }
+  alert("Game over " + player + " won!");
   status = "Game over"; //end game
 }
 
@@ -102,7 +102,9 @@ function restart() {
     cells[i].style.backgroundColor = "black";
   }
   //change player to player X again and set game status to "game on"
-  player = "X";
+  player = "1";
+  mark = "X";
+  document.getElementById("player").innerHTML = player;
   status = "Game on";
   turn = 0;
 }
