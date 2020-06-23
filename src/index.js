@@ -1,13 +1,12 @@
 import "./styles.css";
 
-var turn = 0;
+var turn = 0; //keeps track of played turns
 let player = "X"; //current player
 let status = "Game on"; //shows the game status, default id game on
 const cells = document.getElementsByClassName("cell"); //all cell elements
 
 //goes through all cells and adds EventListener
 for (let i = 0; i < cells.length; i++) {
-  //cells[i].addEventListener("click", cellClick(i));
   cells[i].addEventListener("click", function() {
     cellClick(i);
   });
